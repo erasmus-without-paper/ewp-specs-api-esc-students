@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:ewp="https://github.com/erasmus-without-paper/ewp-specs-architecture/blob/stable-v1/common-types.xsd"
+    xmlns:p="https://github.com/erasmus-without-paper/ewp-specs-types-phonenumber/tree/stable-v1"
+    elementFormDefault="qualified"
+
+    targetNamespace="https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/add-request.xsd"
+    xmlns="https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/add-request.xsd">
+
+    <xs:import
+        schemaLocation="https://raw.githubusercontent.com/erasmus-without-paper/ewp-specs-architecture/stable-v1/common-types.xsd"
+        namespace="https://github.com/erasmus-without-paper/ewp-specs-architecture/blob/stable-v1/common-types.xsd" />
+
+    <xs:import
+        schemaLocation="https://raw.githubusercontent.com/erasmus-without-paper/ewp-specs-types-phonenumber/stable-v1/schema.xsd"
+        namespace="https://github.com/erasmus-without-paper/ewp-specs-types-phonenumber/tree/stable-v1" />
+
+    <xs:annotation>
+        <xs:documentation>
+            This schema is a part of the Erasmus Without Paper project. Before you start using it, make
+            sure you have read the general rules described here:
+
+            http://developers.erasmuswithoutpaper.eu/
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="esc-students-send-request">
+        <xs:annotation>
+            <xs:documentation>
+                This describes the format of the REQUEST to be submitted to the `send` endpoint of EWP ESC
+                Students API.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="Student" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Student">
+        <xs:annotation>
+            <xs:documentation>
+                <!-- TODO -->
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="local-id" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Student unique identifier in the HEI where he is enrolled. This code may be
+                        national wide, regional wide or the home institution own identifier.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="email" type="ewp:Email" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Valid email address, may be private or provided by the home institution.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="expiry-date" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Student status expiry date.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="full-name" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Every part of the name, separated by a space, in the home country expected order.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="p:phone-number" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Student's mobile phone number.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="academic-level" type="ewp:EqfLevel" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Current academic level of the student.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
