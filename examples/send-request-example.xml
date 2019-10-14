@@ -1,0 +1,22 @@
+<esc-students-send-request
+    xmlns="https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/send-request.xsd"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="https://github.com/erasmus-without-paper/ewp-specs-types-phonenumber/tree/stable-v1"
+    xsi:schemaLocation="
+        https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/send-request.xsd
+        https://raw.githubusercontent.com/erasmus-without-paper/ewp-specs-api-esc-students/master/endpoints/send-request.xsd
+     ">
+
+    <hei-id>uw.edu.pl</hei-id>
+    <student>
+        <local-id>152113</local-id>
+        <email>name.surname@facultyname.example.com</email>
+        <expiry-date>2021-09-30</expiry-date>
+        <full-name>Tomasz Karol Nowakowski</full-name>
+        <p:phone-number>
+            <p:e164>+48111222333</p:e164>
+        </p:phone-number>
+        <academic-level>6</academic-level>
+    </student>
+
+</esc-students-send-request>

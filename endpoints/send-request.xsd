@@ -4,8 +4,8 @@
     xmlns:p="https://github.com/erasmus-without-paper/ewp-specs-types-phonenumber/tree/stable-v1"
     elementFormDefault="qualified"
 
-    targetNamespace="https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/add-request.xsd"
-    xmlns="https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/add-request.xsd">
+    targetNamespace="https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/send-request.xsd"
+    xmlns="https://github.com/erasmus-without-paper/ewp-specs-api-esc-students/blob/stable-v1/endpoints/send-request.xsd">
 
     <xs:import
         schemaLocation="https://raw.githubusercontent.com/erasmus-without-paper/ewp-specs-architecture/stable-v1/common-types.xsd"
@@ -33,17 +33,20 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="hei-id" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            The SCHAC identifier of the HEI where the student is enrolled.
+                            https://github.com/erasmus-without-paper/ewp-specs-api-registry/#schac-identifiers
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
                 <xs:element name="student" type="Student" minOccurs="1" maxOccurs="1" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
     <xs:complexType name="Student">
-        <xs:annotation>
-            <xs:documentation>
-                <!-- TODO -->
-            </xs:documentation>
-        </xs:annotation>
         <xs:sequence>
             <xs:element name="local-id" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
@@ -60,7 +63,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="expiry-date" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+            <xs:element name="expiry-date" type="xs:date" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         Student status expiry date.
