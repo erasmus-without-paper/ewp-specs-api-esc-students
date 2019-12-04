@@ -48,11 +48,16 @@
 
     <xs:complexType name="Student">
         <xs:sequence>
-            <xs:element name="local-id" type="xs:string" minOccurs="1" maxOccurs="1">
+            <xs:element name="european-student-id" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
-                        Student unique identifier in the HEI where he is enrolled. This code may be
-                        national wide, regional wide or the home institution own identifier.
+                        European student identifier. Current format: CN-PIC-LOCALCODE, where:
+                        CN - Country code of the institution (ISO 3166-1 norm)
+                        PIC - Participation Identification Code of the insitution where the
+                        student is enrolled
+                        LOCALCODE - Student unique code in the HEI where he is enrolled . From
+                        case to case , this code may be national wide , regional wide or the home
+                        institution own identifier .
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
