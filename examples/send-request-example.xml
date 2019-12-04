@@ -10,6 +10,7 @@
     <hei-id>uw.edu.pl</hei-id>
     <student>
         <european-student-id>PL-999572294-152113</european-student-id>
+        <local-id>152113</local-id>
         <email>name.surname@facultyname.example.com</email>
         <expiry-date>2021-09-30T23:59:59+02:00</expiry-date>
         <full-name>Tomasz Karol Nowakowski</full-name>
